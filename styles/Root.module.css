@@ -1,0 +1,118 @@
+.container {
+  background-color:white;
+  position:relative;
+}
+
+.header {
+  position:fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container, .header { 
+  width:100%;
+  height:100vh;
+}
+
+.headerbox,
+.nav {
+  box-sizing: border-box;
+}
+.headerbox {
+  background-color:white;
+  position:absolute;
+  cursor: pointer; 
+}
+.headerbox> img {
+  margin: auto;
+  margin-left: 2.5px;
+}
+.nav{
+  background-color: white;
+  position:absolute;
+  max-width: 60vw;
+  min-width:200px;
+  width: fit-content;
+  max-height: 70vh;
+  height: fit-content;
+  right: 20vw;
+  padding: .8em .8em 1.5em;  
+  text-transform: uppercase;
+}
+.nav> div {text-align: right;cursor: pointer;}
+.nav> ul {margin-bottom:0;}
+.nav> ul> li {
+  font-size:larger;
+  margin: .25em auto;
+}
+.nav> ul> li:last-child {margin-top: .85em;}
+.nav ul ul {display:flex;}
+.nav ul ul li:nth-child(2) {margin:0 .25em;}
+
+.main {
+  background-color:var(--pnr-emeraude);
+  display:flex;
+}
+
+.figure {
+  border: 1px solid black;
+  padding: .25em;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: white;
+  cursor: pointer;
+}
+.figure img:last-child{margin:55px 0;}
+.figure hr {width:100%;}
+.figure hr:first-of-type {
+  border:.5px solid black;
+  margin:0;
+}
+.figure hr:last-of-type {
+  border:2px solid black;
+  margin-top:2px;
+  margin-bottom:0;
+}
+.figure div {height:8px; background-color: var(--pnr-emeraude); margin-bottom:40px;}
+
+.footer {padding:1em;}
+
+@media screen and (orientation:portrait) {
+  .header {
+    max-height: 50px;
+    top: calc(100vh - 50px);
+  }
+  .headerbox {
+    width :100vw;
+    height: 50px;
+    bottom:0;
+    left:0;
+  }
+  .headerbox> img { margin-left: 2.5px; }
+  .nav {bottom:20vh;}
+  .main {
+    width:100vw;
+    height:calc(100vh - 50px);
+  }
+  .footer {padding: 60px 1.5rem;}    
+}
+@media screen and (orientation: landscape) {
+  .header {
+    max-width: 50px;
+    right: 0;
+    display:block;
+  }
+  .headerbox {
+    width :50px;
+    height: 100vh;
+    right:0;
+  }
+  .headerbox> img { margin-top: 2.5px; } 
+  .nav {top:20vh;}
+  .main {
+    width:calc(100% - 50px);
+    height:100vh;
+  }
+  .footer {padding-right:calc(50px + 1em);}
+}

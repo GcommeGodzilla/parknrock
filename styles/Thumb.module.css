@@ -1,0 +1,26 @@
+.container {
+  display:flex;
+  --albulm-bg : url(/img/logo-parknrock-carre.svg);
+  --pnr-bg : url(/img/logo-parknrock-eclair.svg);
+  width : var(--size);
+  height: var(--size);
+}
+
+.container,
+.pnrImg,
+.albulmImg {
+  position:relative;
+}
+
+.flipper {
+  background-position: center center;
+  background-size: cover;
+  margin:auto;
+}
+
+.pnrImg,
+.albulmImg,
+.flipper {
+  width : var(--size);
+  height: var(--size);
+}

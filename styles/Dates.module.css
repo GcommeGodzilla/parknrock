@@ -1,0 +1,54 @@
+.container {
+  margin:auto;
+  background-color:white;
+  padding:.75em;
+}
+
+.container h1 {text-align:center;}
+.container h1, .container> div:first-child ul:first-of-type {margin: 0;}
+.container> div:first-child> ul:first-of-type {justify-content:center;font-size:x-large;}
+
+.list, .item ul, .container> div:first-child ul:first-of-type, .nav ul {display:flex;}
+.container> ul:first-child, .list {justify-content: center;}
+.list {flex-direction:column;}
+
+.item h2,
+.item h3 {margin-bottom:0;}
+.item h3 {margin-top:0;}
+.item a {text-decoration: underline;}
+.item ul {flex-wrap: wrap;justify-content: start !important;}
+
+.slashicon {display:inline-flex;}
+.slashicon> span {font-weight:bold;font-size:large;}
+.slashicon> span:first-child {color: var(--pnr-mauve);}
+.slashicon> span:nth-child(2) {color: var(--pnr-emeraude);}
+.slashicon> span:last-child {color: var(--pnr-vert);}
+
+.bandsitem::before {
+    content:"+";
+    margin:.5rem;
+}
+.bandsitem:first-child::before {
+    content:"♫";
+    margin-left:0;
+}
+.bandsitem:first-child::before {color:var(--pnr-emeraude);}
+.bandsitem:nth-child(2)::before {color:var(--pnr-vert);}
+.bandsitem:last-child::before {color:var(--pnr-mauve);}
+
+.nav ul {font-size:larger;text-transform:uppercase;/*justify-content:space-between;*/}
+
+@media screen and (orientation:portrait) {
+  .container {margin: auto 3vh;}
+  .container> ul:first-child {flex-wrap: wrap;}
+  .nav ul {justify-content: space-between;}
+}
+
+@media screen and (orientation:landscape) {
+  .container {
+    display:flex;
+    flex-direction:column-reverse;
+  }
+  .nav ul {justify-content: end;}
+  .nav li {margin-left:1em;}
+}

@@ -1,0 +1,26 @@
+.container {
+  margin: auto;
+  background-color:white;
+  padding:1.5em;
+  display:flex;  
+  flex-direction: column;
+}
+.container> ul {font-size:larger;}
+.nav ul {
+  display:flex;
+  justify-content:space-between;
+  text-transform: uppercase;
+}
+.nav li {cursor: pointer;}
+@media screen and (orientation:portrait) {
+  .container {padding-bottom:.5em;}
+}
+@media screen and (orientation:landscape) {
+  .container {
+    flex-direction: column-reverse;
+    padding-top:.5em;
+}
+  .container> ul {margin-top:0;}
+  .nav ul {justify-content: flex-end;}
+  .nav li {margin-left:1em;}
+}

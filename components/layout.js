@@ -4,28 +4,29 @@ import Link from 'next/link'
 import toggleMenu from '../lib/menu'
 import styles from '../styles/Root.module.css'
 
-export default function Root() {
+export default function Layout({ children }) {
 
   return (
     <>
     <div className={styles.container}>
       <Head>
         <title>PARKN'ROCK</title>
-        <meta name="description" content="Les pochettes d'albums mythiques revisitées" />
+        <meta name="description" content="Les pochettes d'albums rock mythiques revisitées" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <header className={styles.header}>
         <div className={styles.headerbox} onClick={toggleMenu}>
           <Image
             src={'/img/logo-parknrock-eclair.svg'}
-            width={45}
-            height={45}
-            alt={'logo'}
+            width={50}
+            height={50}
             priority={'true'}
           >
           </Image>
         </div>
-        <nav className={`${styles.nav} hidden`}>
+        <nav  className={`${styles.nav} hidden`}>
           <div onClick={toggleMenu}>Fermer X</div>
           <ul>
             <li>
@@ -83,24 +84,7 @@ export default function Root() {
         </nav>
       </header>
       <main className={styles.main}>
-        <div className={styles.figure} onClick={toggleMenu}>
-          <Image
-            src={'/img/2010-postics-hunky_dory.webp'}
-            width={350}
-            height={350}
-            priority={'true'}
-          ></Image>
-          <Image
-            src={'/img/logo-parknrock-bandeau.svg'}
-            width={350}
-            height={55}
-            priority={'true'}
-          >
-          </Image>
-          <hr></hr>
-          <hr></hr>
-          <div></div>
-        </div>
+        {children}
       </main>
       <footer className={styles.footer}>
         <p>
