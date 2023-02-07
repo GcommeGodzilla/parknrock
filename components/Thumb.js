@@ -61,7 +61,7 @@ export default function Thumb({o}) {
       >
         <div ref={albulmRef} className={styles.albulmImg}>
           <Image
-            src={'/img/' + o.albulm.img}
+            src={'/img/' + o.albulm.img + '200x200px.jpg'}
             fill={true}
             priority={true}
             alt={'albulm cover'}
@@ -70,7 +70,7 @@ export default function Thumb({o}) {
         </div>
         <div ref={pnrRef} className={`${styles.pnrImg} hidden`}>
           <Image
-            src={'/img/' + o.img}
+            src={'/img/' + o.img + '200x200px.webp'}
             fill={true}
             priority={true}
             alt={"PNR artwork"}
