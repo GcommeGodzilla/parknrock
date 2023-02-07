@@ -52,12 +52,12 @@ const Oeuvre = function({artistes, oeuvres}) {
         <div className={`${styles.container} ${screenData.shape}`}>
           <div className={styles.grid}>
             <Image className={styles.oeuvreimg}
-              src={"/img/" + oeuvre.img}
+              src={"/img/" + oeuvre.img + ".1000x1000px.webp"}
               fill={true}
               priority={true}
             ></Image>
             <Image className={styles.albulmimg}
-              src={"/img/" + oeuvre.albulm.img}
+              src={"/img/" + oeuvre.albulm.img + ".200x200px.jpg"}
               fill={true}
               priority={true}
             ></Image>
