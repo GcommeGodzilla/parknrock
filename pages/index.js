@@ -85,7 +85,7 @@ export default function Root() {
       <main className={styles.main}>
         <div className={styles.figure} onClick={toggleMenu}>
           <Image
-            src={'/img/2010-postics-hunky_dory.webp'}
+            src={'/img/2010-postics-hunky_dory.1000x1000px.webp'}
             width={350}
             height={350}
             priority={'true'}
