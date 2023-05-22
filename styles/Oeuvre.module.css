@@ -38,6 +38,14 @@
   flex-direction: row-reverse;
   margin: 0;
 }
+.artisteoeuvres li {
+  width: calc(var(--size) + 4px);
+  height: calc(var(--size) + 4px);
+  padding: 1px;
+  border: 1px solid transparent;
+}
+.artisteoeuvres li:hover {border-color:black;}
+
 .grid> p, .grid> div {align-self: center;}
 
 .nav ul {text-transform:uppercase;}
@@ -70,7 +78,8 @@
   }
   .grid> p {
     grid-column: 5 / span 2;
-    grid-row: 1 / span 1;  
+    grid-row: 1 / span 1; 
+    font-size: x-large; 
   }
   .grid> div {
     grid-column: 4 / span 3;

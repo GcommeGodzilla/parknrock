@@ -51,4 +51,29 @@
   }
   .nav ul {justify-content: end;}
   .nav li {margin-left:1em;}
+
+  .container> div {min-width:80vw;}
+  .list {
+    min-height: 50vh;
+    align-content: center;
+    display:grid;
+    grid-template-areas: 
+      "slot1 sep slot3"
+      "slot2 sep slot4";
+  }
+  .list li:first-child, .list li:nth-child(5) {grid-area: slot1;}
+  .list li:nth-child(2), .list li:nth-child(6) {grid-area: slot2;}
+  .list li:nth-child(3), .list li:nth-child(7) {grid-area: slot3;}
+  .list li:nth-child(4) {grid-area: slot4;}
+}
+.list li:last-child {
+  grid-area: sep;
+  display: flex;
+  height:100%;
+}
+.list li:last-child div {
+  width: 1px;
+  background-color: black;
+  height: 65%;
+  margin: auto 1.2em;
 }

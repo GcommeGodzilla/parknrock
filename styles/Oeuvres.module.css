@@ -17,7 +17,15 @@
 .item {
   --albulm-bg : url(/img/logo-parknrock-carre.svg);
   --pnr-bg : url(/img/logo-parknrock-eclair.svg);
+  border: 1px solid transparent;
+  padding: 1px;
+  width: calc(var(--size) + 4px);
+  height: calc(var(--size) + 4px);
 }
+
+.item:hover {border-color: black;}
+.item:first-child:hover {border-color: transparent;}
+
 .pnrItem {
   position:relative;
   width :var(--size);

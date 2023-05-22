@@ -24,3 +24,8 @@
   .nav ul {justify-content: flex-end;}
   .nav li {margin-left:1em;}
 }
+
+@media screen and (orientation:landscape) and (min-height:620px) {
+  .list {min-width:65vw;}
+  
+}

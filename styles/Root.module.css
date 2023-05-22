@@ -1,6 +1,9 @@
 .container {
   background-color:white;
   position:relative;
+  background-size:cover;
+  background-position: center center;
+  background-image: url('/img/2010-postics-hunky_dory.200x200px.webp');
 }
 
 .header {
@@ -8,10 +11,12 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  z-index:2;
 }
+.container main> div {box-shadow : .7em .7em rgba(0,0,0,.2);}
 .container, .header { 
   width:100%;
-  height:100vh;
+  height:100dvh;
 }
 
 .headerbox,
@@ -47,11 +52,17 @@
 }
 .nav> ul> li:last-child {margin-top: .85em;}
 .nav ul ul {display:flex;}
+.nav ul ul a {
+  padding:1px;
+  border: 1px solid transparent;
+  display:flex;
+}
+.nav ul ul a:hover {border-color:black;}
 .nav ul ul li:nth-child(2) {margin:0 .25em;}
 
 .main {
-  background-color:var(--pnr-emeraude);
   display:flex;
+  z-index:1;
 }
 
 .figure {
@@ -100,19 +111,31 @@
 @media screen and (orientation: landscape) {
   .header {
     max-width: 50px;
-    right: 0;
+    left: 0;
     display:block;
   }
+  .main, .footer, .nav {position:absolute;}
+  .main {left:50px;}
+  .footer {top:100vh;}
   .headerbox {
     width :50px;
     height: 100vh;
     right:0;
   }
   .headerbox> img { margin-top: 2.5px; } 
-  .nav {top:20vh;}
+  .nav {
+    top: 12vh;
+    left: 70vw;
+  }
   .main {
     width:calc(100% - 50px);
     height:100vh;
   }
-  .footer {padding-right:calc(50px + 1em);}
+  .footer {
+    padding-right:calc(50px + 1em);
+    padding-left:calc(50px + 1em);
+  }
+  .footer p {margin:1em}
+  .footer p:first-child {text-align: center;}
+  .footer p:last-child {text-align:justify;}
 }
