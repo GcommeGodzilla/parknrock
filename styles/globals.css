@@ -22,7 +22,7 @@ ul {padding-left:0;list-style: none;}
   --pnr-vert : #8fdc00;
   --pnr-mauve : #ab80b3;
   --pnr-emeraude : #73dcba;
-  --size : 18vw;
+  --size : 17vw;
 }
 .hidden {display:none !important;}
 
@@ -50,12 +50,12 @@ a:hover .chevron {
 }
 @media screen and (orientation:portrait) {
   .redux {--size: 27vw;}
-  .wide {--size: 13vh;}
+  .wide {--size: 13dvh;}
 }
 @media screen and (orientation: landscape) {
-  :root {--size : 18vh;}
+  :root {--size : 18dvh;}
   .redux {--size: 13vw;}
-  .wide {--size: 27vh;}
+  .wide {--size: 27dvh;}
 }
 
 
