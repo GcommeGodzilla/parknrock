@@ -31,6 +31,8 @@ ul {padding-left:0;list-style: none;}
   padding-right:12px;
   font-size:larger;
 }
+.menu-icon {position:relative;}
+.menu-icon span:last-child {position:absolute;left:0;top:-.205em;}
 a:hover .chevron {
   padding-left:6px;
   padding-right:6px;
