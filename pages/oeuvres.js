@@ -37,6 +37,7 @@ export default function Oeuvres({oeuvres}) {
               fill={true}
               alt={"Logo PNR"}
               priority={true}
+              sizes="(orientation : portrait) 18dvw, (orientation : landscape) 18dvh"
             ></Image>
           </li>
           {oeuvres.map((oeuvre) => {
@@ -55,7 +56,7 @@ export default function Oeuvres({oeuvres}) {
         <div className={styles.nav}>
           <ul>
             <li onClick={nextPage}>Suiv. {">"}</li>
-            <li onClick={toggleMenu}>Fermer X</li>
+            <li onClick={toggleMenu}>Menu <span className="menu-icon" role="icon"><span>=</span><span>=</span></span></li>
           </ul>
         </div>
       </div>

@@ -53,28 +53,31 @@ export default function Root() {
             </li>
             <li>
               <ul>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://studioburo.com' target="_blank">
                   <Image 
                     src={'/img/img-studioburo.png'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo studioburo'}
                   ></Image>
                 </a></li>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://www.instagram.com/studioburo' target="_blank">
                   <Image 
                     src={'/img/img-facebook-icon.jpg'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo facebook'}
                   ></Image>
                 </a></li>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://myspace.com/studioburo' target="_blank">
                   <Image 
                     src={'/img/img-myspace-icon.jpg'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo myspace'}
                   ></Image>
                 </a></li>
               </ul>
@@ -89,12 +92,14 @@ export default function Root() {
             width={350}
             height={350}
             priority={'true'}
+            alt={'Hunky Dory by Postics'}
           ></Image>
           <Image
             src={'/img/logo-parknrock-bandeau.svg'}
             width={350}
             height={55}
             priority={'true'}
+            alt={"Park'N'Rock logo-titre"}
           >
           </Image>
           <hr></hr>

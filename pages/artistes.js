@@ -27,11 +27,11 @@ export default function Artistes({ artistes }) {
     <>
       <Layout>
         <div className={styles.container}>
-          <ul className={'list'}>
+          <ul className={styles.list}>
             {artistes.map((artiste) => {
               arrayIndex++
               return (
-                <li key={'item-' + arrayIndex} className={styles.item + (arrayIndex> 6 ? ' hidden' : '')}>
+                <li key={'artist-' + arrayIndex} /*className={(arrayIndex> 6 ? 'hidden' : '') }*/>
                   <Artiste 
                     nom={artiste.nom}
                     link={artiste.link}
@@ -43,8 +43,8 @@ export default function Artistes({ artistes }) {
           </ul>
           <div className={styles.nav}>
             <ul>
-                <li onClick={nextPage}>Suiv. {">"}</li>
-                <li onClick={toggleMenu}>Fermer X</li>
+                <li onClick={nextPage} className={'hidden'}>Suiv. {">"}</li>
+                <li onClick={toggleMenu}>Menu <span className="menu-icon" role="icon"><span>=</span><span>=</span></span></li>
             </ul>
           </div>
         </div>

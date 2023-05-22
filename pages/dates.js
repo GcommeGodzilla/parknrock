@@ -19,9 +19,10 @@ export async function getServerSideProps(context) {
 export default function Dates( {dates} ) {
   let arrayIndex = -1;
   const nextPage = function() {
-    let itemElts = document.querySelectorAll('.itemslist li, .dates li');
+    let itemElts = document.querySelectorAll('.itemslist li:not(.separator), .dates li');
     for (let i=0;i<itemElts.length;i++) { itemElts[i].classList.toggle('hidden') }
   }
+  
 
   return(
     <>
@@ -33,17 +34,18 @@ export default function Dates( {dates} ) {
                 src={'/img/logo-parknrock-bandeau.svg'}
                 width={316.4}
                 height={50}
+                alt={"bandeau Park'N'Rock"}
               ></Image>
             </h1>
             <ul className={'dates'}>
-              <li>2009</li>
-              <li className={'hidden'}>2010</li>
+              <li key={'dates-page-' + 1}>2009</li>
+              <li key={'dates-page-' + 2} className={'hidden'}>2010</li>
             </ul>
             <ul className={`${styles.list} itemslist`}>
             {dates.map((date) => {
               arrayIndex++;
               return (
-                <li key={'item-' + arrayIndex} className={styles.item + (arrayIndex>3  ? ' hidden' : '')}>
+                <li key={'date-item-' + arrayIndex} className={styles.item + (arrayIndex>3  ? ' hidden' : '')}>
                   <h2>
                     {date.date} | <span className={"ville"}>{date.lieu.ville}</span></h2>
                   <h3>
@@ -84,12 +86,13 @@ export default function Dates( {dates} ) {
                 </li>
               );
             })}
+            <li key={dates.length} className={"separator"}><div></div></li>
           </ul>
           </div>
           <div className={styles.nav}>
             <ul>
                 <li onClick={nextPage}>Suiv. {">"}</li>
-                <li onClick={toggleMenu}>Fermer X</li>
+                <li onClick={toggleMenu}>Menu <span className="menu-icon" role="icon"><span>=</span><span>=</span></span></li>
             </ul>
           </div>
         </div>

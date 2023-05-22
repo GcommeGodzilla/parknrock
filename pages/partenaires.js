@@ -154,7 +154,7 @@ export default function Partenaires() {
           <div className={styles.nav}>
             <ul>
               <li onClick={nextPage}>Suiv. {">"}</li>
-              <li onClick={toggleMenu}>Fermer X</li>
+              <li onClick={toggleMenu}>Menu <span className="menu-icon" role="icon"><span>=</span><span>=</span></span></li>
             </ul>
           </div>
         </div>
