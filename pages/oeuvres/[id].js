@@ -43,6 +43,7 @@ const Oeuvre = function({artistes, oeuvres}) {
     if ( (o.artiste === oeuvre.artiste) && (o != oeuvre) ) {artisteoeuvres.push(o)} ;
   });
 
+  let arrayIndex = 0;
   let screenData = {};
   getScreenData(screenData);
 
@@ -54,12 +55,16 @@ const Oeuvre = function({artistes, oeuvres}) {
             <Image className={styles.oeuvreimg}
               src={"/img/" + oeuvre.img + ".1000x1000px.webp"}
               fill={true}
+              sizes="(orientation : portrait) 58dvw, (orientation : landscape) 58dvh"
               priority={true}
+              alt={"Park'N'Rock albulm cover"}
             ></Image>
             <Image className={styles.albulmimg}
               src={"/img/" + oeuvre.albulm.img + ".200x200px.jpg"}
               fill={true}
+              sizes="(orientation : portrait) 18dvw, (orientation : landscape) 18dvh"
               priority={true}
+              alt={"Original albulm cover"}
             ></Image>
             <p><em>{oeuvre.albulm.titre}</em><br/>( {oeuvre.albulm.artiste} )</p>
             <div>
@@ -72,8 +77,9 @@ const Oeuvre = function({artistes, oeuvres}) {
             <ul className={styles.artisteoeuvres}>
               {artisteoeuvres.map((artisteo)=> {
                 if(artisteo != oeuvre) {
+                  arrayIndex++;
                   return (
-                    <li>
+                    <li key={'item' + arrayIndex}>
                       <Link href={"/oeuvres/"+ artisteo.titre}>
                         <Thumb o={artisteo}></Thumb>
                       </Link>
@@ -88,7 +94,7 @@ const Oeuvre = function({artistes, oeuvres}) {
             <ul>
                 <li><Link href={"/oeuvres/"+ precOeuvreID}>{"<"} Préc.</Link></li>
                 <li><Link href={"/oeuvres/"+ precOeuvreID}>Suiv. {">"}</Link></li>
-                <li onClick={toggleMenu}>Fermer X</li>
+                <li onClick={toggleMenu}>Menu <span className="menu-icon" role="icon"><span>=</span><span>=</span></span></li>
             </ul>
           </div>
         </div>
