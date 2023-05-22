@@ -3,12 +3,41 @@ import Image from 'next/image'
 import Link from 'next/link'
 import toggleMenu from '../lib/menu'
 import styles from '../styles/Root.module.css'
+import {useRef, useEffect} from 'react'
 
 export default function Layout({ children }) {
 
+  var currentBg = "url('/img/2010-postics-hunky_dory.200x200px.webp')";
+  var newBg;
+  const mainContainerRef = useRef();
+
+  const getNewBg = function() {
+    let randomNb = Math.floor(Math.random() * 5);
+    if (randomNb < 1) newBg="url('/img/2010-postics-hunky_dory.200x200px.webp')";
+    else if ((randomNb >= 1) && (randomNb < 2)) newBg="url('/img/2009-katey_jean_harvey-how_it_feel_to_be_something_on.200x200px.webp')";
+    else if ((randomNb >= 2) && (randomNb < 3)) newBg="url('/img/2009-katey_jean_harvey-the_power_of_failing.200x200px.webp')";
+    else if ((randomNb >= 3) && (randomNb < 4)) newBg="url('/img/2009-katy_jean_harvey-weezer.200x200px.webp')";
+    else if (randomNb >= 4) newBg="url('/img/2009-patrick_gildersleeves-im_a_believer.200x200px.webp')";
+  }
+
+  const changeBg = function() {
+    if(mainContainerRef.current !== null) {
+      while (newBg === currentBg) getNewBg();
+      if (newBg !== currentBg) currentBg = newBg;
+      //console.log(currentBg);
+      mainContainerRef.current.style.backgroundImage= currentBg;
+    }
+    /*while (newBg === currentBg) getNewBg();
+    if (newBg !== currentBg) currentBg = newBg;
+    //console.log(currentBg);
+    mainContainerRef.current.style.backgroundImage= currentBg;*/
+  }
+
+  useEffect( () => {setInterval(changeBg, 5000 )}, [])
+
   return (
     <>
-    <div className={styles.container}>
+    <div className={styles.container} style={{backgroundImage: currentBg}} ref={mainContainerRef}>
       <Head>
         <title>PARKN'ROCK</title>
         <meta name="description" content="Les pochettes d'albums rock mythiques revisitées" />
@@ -23,6 +52,7 @@ export default function Layout({ children }) {
             width={50}
             height={50}
             priority={'true'}
+            alt={'logo'}
           >
           </Image>
         </div>
@@ -54,28 +84,31 @@ export default function Layout({ children }) {
             </li>
             <li>
               <ul>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://studioburo.com' target="_blank">
                   <Image 
                     src={'/img/img-studioburo.png'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo studioburo'}
                   ></Image>
                 </a></li>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://www.instagram.com/studioburo' target="_blank">
                   <Image 
                     src={'/img/img-facebook-icon.jpg'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo facebook'}
                   ></Image>
                 </a></li>
-                <li><a href='https://studioburo.com'>
+                <li><a href='https://myspace.com/studioburo' target="_blank">
                   <Image 
                     src={'/img/img-myspace-icon.jpg'}
                     width={36}
                     height={36}
                     priority={'true'}
+                    alt={'logo myspace'}
                   ></Image>
                 </a></li>
               </ul>

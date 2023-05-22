@@ -1,58 +1,55 @@
 import Image from 'next/image'
 import styles from '../styles/Thumb.module.css'
-import { useEffect,  useRef } from 'react'
+import { useRef } from 'react'
 
 export default function Thumb({o}) {
-  if(typeof window!=='undefined') {
-    useEffect( ()=> { //Enregistre les urls des imgs du thumb pour le background du flipper 
-      var albulmBg = albulmRef.current.querySelector('img').src;
-      var pnrBg = pnrRef.current.querySelector('img').src;
-      containerRef.current.style.setProperty('--albulm-bg', 'url(' + albulmBg + ')')
-      containerRef.current.style.setProperty('--pnr-bg', 'url(' + pnrBg + ')')
-    }, [/*containerRef*/])
-  }
+
+  let flipperRef = useRef();
+  let albulmRef = useRef();
+  let pnrRef = useRef();
+  let containerRef = useRef();
+  
+  var pnrBg = "url('/img/" + o.img + ".200x200px.webp')";
+  var albulmBg = "url('/img/" + o.albulm.img + ".200x200px.jpg')";
 
   const showAlbulm = function() {
+    albulmRef.current.classList.add('hidden');
+    pnrRef.current.classList.add('hidden');
+    flipperRef.current.classList.remove('hidden');
+    flipperRef.current.classList.add('activeThumb');
+    flipperRef.current.style.backgroundImage = pnrBg;
+    setTimeout(()=>{
+      flipperRef.current.style.backgroundImage = albulmBg;
       albulmRef.current.classList.add('hidden');
+    }, 275)
+    setTimeout(()=>{
+      albulmRef.current.classList.remove('hidden');
       pnrRef.current.classList.add('hidden');
-      flipperRef.current.classList.remove('hidden');
-      flipperRef.current.classList.add('activeThumb');
-      flipperRef.current.style.backgroundImage = 'var(--pnr-bg)';
-      setTimeout(()=>{
-        flipperRef.current.style.backgroundImage = 'var(--albulm-bg)';
-        albulmRef.current.classList.add('hidden');
-      }, 275)
-      setTimeout(()=>{
-        albulmRef.current.classList.remove('hidden');
-        pnrRef.current.classList.add('hidden');
-        flipperRef.current.classList.add('hidden');
-        flipperRef.current.classList.remove('activeThumb'); 
-      }, 550);
-  }
-  const showPnr = function() {
-      albulmRef.current.classList.add('hidden');
-      pnrRef.current.classList.add('hidden');
-      flipperRef.current.classList.remove('hidden');
-      flipperRef.current.classList.add('activeThumb');
-      flipperRef.current.style.backgroundImage = 'var(--albulm-bg)';
-      setTimeout(()=>{
-          flipperRef.current.style.backgroundImage = 'var(--pnr-bg)';
-          albulmRef.current.classList.add('hidden');
-        }, 275)
-      setTimeout(()=>{
-        albulmRef.current.classList.add('hidden');
-        pnrRef.current.classList.remove('hidden');
-        flipperRef.current.classList.add('hidden');
-        flipperRef.current.classList.remove('activeThumb');
-      }, 550);
-  }
-  const flipperRef = useRef()
-  const albulmRef = useRef()
-  const pnrRef = useRef()
-  const containerRef = useRef()
+      flipperRef.current.classList.add('hidden');
+      flipperRef.current.classList.remove('activeThumb'); 
+    }, 550);
+}
 
-  return (
-    <>
+const showPnr = function() {
+  albulmRef.current.classList.add('hidden');
+  pnrRef.current.classList.add('hidden');
+  flipperRef.current.classList.remove('hidden');
+  flipperRef.current.classList.add('activeThumb');
+  flipperRef.current.style.backgroundImage = albulmBg;
+  setTimeout(()=>{
+    flipperRef.current.style.backgroundImage = pnrBg;
+    albulmRef.current.classList.add('hidden');
+  }, 275)
+  setTimeout(()=>{
+    albulmRef.current.classList.add('hidden');
+    pnrRef.current.classList.remove('hidden');
+    flipperRef.current.classList.add('hidden');
+    flipperRef.current.classList.remove('activeThumb');
+  }, 550);
+}
+
+return (
+  <>
       <div 
         onMouseEnter={showPnr} 
         onMouseLeave ={showAlbulm}
@@ -65,6 +62,7 @@ export default function Thumb({o}) {
             fill={true}
             priority={true}
             alt={'albulm cover'}
+            sizes="(orientation : portrait) 18dvw, (orientation : landscape) 18dvh"
           >
           </Image>
         </div>
@@ -74,6 +72,7 @@ export default function Thumb({o}) {
             fill={true}
             priority={true}
             alt={"PNR artwork"}
+            sizes="(orientation : portrait) 18dvw, (orientation : landscape) 18dvh"
           >
           </Image>
         </div>
