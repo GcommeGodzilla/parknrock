@@ -43,6 +43,12 @@
   .container> ul:first-child {flex-wrap: wrap;}
   .nav ul {justify-content: space-between;}
 }
+@media screen and (orientation:portrait) and (max-width:450px) {
+  .container {
+    margin: auto;
+    font-size:14px;
+  }
+}
 
 @media screen and (orientation:landscape) {
   .container {
