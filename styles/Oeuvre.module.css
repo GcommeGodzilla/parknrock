@@ -1,8 +1,4 @@
-.container {
-  margin:auto;
-  background-color: rgba(255,255,255,.78);
-}
-
+.container {margin:auto;}
 .grid {
   display:grid;
   grid-template-columns: repeat(3, var(--size));
@@ -44,7 +40,7 @@
   padding: 1px;
   border: 1px solid transparent;
 }
-.artisteoeuvres li:hover {border-color:black;}
+.artisteoeuvres li:hover {border-color:white;}
 
 .grid> p, .grid> div {align-self: center;}
 
