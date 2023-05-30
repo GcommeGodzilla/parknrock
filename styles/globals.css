@@ -5,6 +5,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+body{
+  background-color: black;
+  color:white;
+}
 
 a {
   color: inherit;
@@ -58,17 +62,3 @@ a:hover .chevron {
   .wide {--size: calc(27dvh - 4px);}
 }
 
-
-/*@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}*/
-
-@media screen and (orientation:landscape) {
-  
-}

@@ -1,9 +1,5 @@
 .container {
-  background-color:white;
-  position:relative;
-  background-size:cover;
-  background-position: center center;
-  background-image: url('/img/2010-postics-hunky_dory.200x200px.webp');
+  background-color:black;
 }
 
 .header {
@@ -13,7 +9,6 @@
   align-items: center;
   z-index:2;
 }
-.container main> div {box-shadow : .7em .7em rgba(0,0,0,.2);}
 .container, .header { 
   width:100%;
   height:100dvh;
@@ -24,16 +19,17 @@
   box-sizing: border-box;
 }
 .headerbox {
-  background-color:white;
+  background-color:black;
   position:absolute;
   cursor: pointer; 
 }
+.headerbox:hover {background-color:white;}
+.headerbox:hover path.st0 {fill:black;}
+
 .headerbox> img {
   margin: auto;
-  margin-left: 2.5px;
 }
 .nav{
-  background-color: white;
   position:absolute;
   max-width: 60vw;
   min-width:200px;
@@ -50,7 +46,6 @@
   font-size:larger;
   margin: .25em auto;
 }
-.nav> ul> li:last-child {margin-top: .85em;}
 .nav ul ul {display:flex;}
 .nav ul ul a {
   padding:1px;
@@ -71,10 +66,9 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  background-color: white;
   cursor: pointer;
 }
-.figure img:last-child{margin:55px 0;}
+
 .figure hr {width:100%;}
 .figure hr:first-of-type {
   border:.5px solid black;
@@ -121,8 +115,7 @@
     width :50px;
     height: 100vh;
     right:0;
-  }
-  .headerbox> img { margin-top: 2.5px; } 
+  } 
   .nav {
     top: 12vh;
     left: 70vw;
