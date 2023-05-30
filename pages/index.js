@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import toggleMenu from '../lib/menu'
+import toggleLogo from '../lib/logo'
 import styles from '../styles/Root.module.css'
 
 export default function Root() {
@@ -10,20 +11,30 @@ export default function Root() {
     <>
     <div className={styles.container}>
       <Head>
-        <title>PARKN'ROCK</title>
+        <title>LP1X1</title>
         <meta name="description" content="Les pochettes d'albums mythiques revisitées" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}>
-        <div className={styles.headerbox} onClick={toggleMenu}>
-          <Image
-            src={'/img/logo-parknrock-eclair.svg'}
-            width={45}
-            height={45}
-            alt={'logo'}
-            priority={'true'}
-          >
-          </Image>
+        <div className={styles.headerbox} onClick={toggleMenu} onMouseEnter={toggleLogo} onMouseLeave={toggleLogo}>
+          <Link href="/" >
+            <Image
+              src={'/img/logo-LP1x1_vagues.svg'}
+              width={50}
+              height={50}
+              priority={'true'}
+              alt={'logo'}
+              className={'logo-positif'}
+            ></Image>
+            <Image
+              src={'/img/logo-LP1x1_vagues_negatif.svg'}
+              width={50}
+              height={50}
+              priority={'true'}
+              alt={'logo'}
+              className={'logo-negatif hidden'}
+            ></Image>
+          </Link>
         </div>
         <nav className={`${styles.nav} hidden`}>
           <div onClick={toggleMenu}>Fermer X</div>
@@ -44,72 +55,34 @@ export default function Root() {
               </Link>
             </li>
             <li>
-              <Link href={'/partenaires'}>
-                <span className={'chevron'}>»</span>Partenaires
+              <Link href={'/a-propos'}>
+                <span className={'chevron'}>»</span>À propos
               </Link>
             </li>
             <li>
-              <a href='https://studioburo.com/contact'><span className={'chevron'}>»</span>Contact</a>
-            </li>
-            <li>
-              <ul>
-                <li><a href='https://studioburo.com' target="_blank">
-                  <Image 
-                    src={'/img/img-studioburo.png'}
-                    width={36}
-                    height={36}
-                    priority={'true'}
-                    alt={'logo studioburo'}
-                  ></Image>
-                </a></li>
-                <li><a href='https://www.instagram.com/studioburo' target="_blank">
-                  <Image 
-                    src={'/img/img-facebook-icon.jpg'}
-                    width={36}
-                    height={36}
-                    priority={'true'}
-                    alt={'logo facebook'}
-                  ></Image>
-                </a></li>
-                <li><a href='https://myspace.com/studioburo' target="_blank">
-                  <Image 
-                    src={'/img/img-myspace-icon.jpg'}
-                    width={36}
-                    height={36}
-                    priority={'true'}
-                    alt={'logo myspace'}
-                  ></Image>
-                </a></li>
-              </ul>
+              <Link href={'/partenaires'}>
+                <span className={'chevron'}>»</span>Partenaires
+              </Link>
             </li>
           </ul>
         </nav>
       </header>
       <main className={styles.main}>
-        <div className={styles.figure} onClick={toggleMenu}>
-          <Image
-            src={'/img/2010-postics-hunky_dory.1000x1000px.webp'}
-            width={350}
-            height={350}
-            priority={'true'}
-            alt={'Hunky Dory by Postics'}
-          ></Image>
-          <Image
-            src={'/img/logo-parknrock-bandeau.svg'}
-            width={350}
-            height={55}
-            priority={'true'}
-            alt={"Park'N'Rock logo-titre"}
-          >
-          </Image>
-          <hr></hr>
-          <hr></hr>
-          <div></div>
+        <div className={styles.figure}>
+          <Link href='/oeuvres'>
+            <Image
+              src={'/img/LP1x1_disque_vinyl_avec_sticker.jpg'}
+              fill={true}
+              objectFit={'contain'}
+              priority={'true'}
+              alt={'Vinyl LP1X1 par Postics'}
+            ></Image>
+          </Link>
         </div>
       </main>
       <footer className={styles.footer}>
         <p>
-        © Studioburo 2006-2022 / All rights reserved.
+        © Studioburo 2006-2023 / All rights reserved.
         </p>
         <p>No part of this website may be reproduced, stored in a retrival system in any form or by any means - electronic, mechanical, photocopying, recording or otherwise without prior permission from Studiobüro.
         </p>
