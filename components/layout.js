@@ -1,21 +1,29 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import toggleMenu from '../lib/menu'
 import toggleLogo from '../lib/logo'
 import styles from '../styles/Root.module.css'
-import {useRef, useEffect} from 'react'
 
 export default function Layout({ children }) {
+  const router = useRouter();
+  let currentPage = router.asPath.substring(1);
+  if (
+    (currentPage!=='a-propos')
+    && (currentPage !=='artistes')
+    && (currentPage !=='dates')
+    && (currentPage !=='oeuvres')
+    && (currentPage !=='partenaires')
+  ) currentPage = 'layout';
   return (
     <>
-    <div className={styles.container}>
+    <div className={styles.container + ' page-' + currentPage}>
       <Head>
         <title>LP1X1</title>
         <meta name="description" content="Les pochettes d'albums rock mythiques revisitées" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+       </Head>
 
       <header className={styles.header}>
         <div className={styles.headerbox} onClick={toggleMenu} onMouseEnter={toggleLogo} onMouseLeave={toggleLogo}>
@@ -74,9 +82,9 @@ export default function Layout({ children }) {
       </main>
       <footer className={styles.footer}>
         <p>
-        © Studioburo 2006-2023 / All rights reserved.
+        © Studioburo 2006-2023 / Tous droits réservés.
         </p>
-        <p>No part of this website may be reproduced, stored in a retrival system in any form or by any means - electronic, mechanical, photocopying, recording or otherwise without prior permission from Studiobüro.
+        <p>No part of this website may be reproduced, stored in a retrival system in any form or by any means - electronic, mechanical, photocopying, recording or otherwise without prior permission from Studioburo.
         </p>
       </footer>
     </div>
