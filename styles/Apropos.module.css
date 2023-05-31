@@ -1,0 +1,29 @@
+.container {
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+}
+.nav li {font-weight:200;cursor: pointer;}
+.uppercase {text-transform:uppercase;}
+.nav {
+  text-align:right;
+  cursor: pointer;
+}
+
+.credits dl {
+  display:grid;
+  grid-template-columns: 2fr 3fr;
+}
+.credits dd {margin-left: 0;}
+
+@media screen and (orientation:portrait) {
+  .container {max-width:96vw;}
+}
+
+@media screen and (orientation:landscape) {
+  .container {
+    max-width:70vw;
+    flex-direction:column-reverse;
+  }
+  .container p {max-width:70dvw;}
+}

@@ -1,8 +1,17 @@
+.header {
+  position:fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index:2;
+}
+
 .container {
   margin:auto;
-  background-color:white;
   padding:.75em;
 }
+
+.container .menu-dates {display:none}
 
 .container h1 {text-align:center;}
 .container h1, .container> div:first-child ul:first-of-type {margin: 0;}
@@ -26,7 +35,7 @@
 
 .bandsitem::before {
     content:"+";
-    margin:.5rem;
+    margin: auto .5rem;
 }
 .bandsitem:first-child::before {
     content:"♫";
@@ -37,6 +46,7 @@
 .bandsitem:last-child::before {color:var(--pnr-mauve);}
 
 .nav ul {font-size:larger;text-transform:uppercase;/*justify-content:space-between;*/}
+.nav li {font-weight:200;cursor: pointer;}
 
 @media screen and (orientation:portrait) {
   .container {margin: auto 3vh;}
@@ -79,7 +89,7 @@
 }
 .list li:last-child div {
   width: 1px;
-  background-color: black;
+  background-color: white;
   height: 65%;
   margin: auto 1.2em;
 }

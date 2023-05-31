@@ -40,7 +40,7 @@
   padding: .8em .8em 1.5em;  
   text-transform: uppercase;
 }
-.nav> div {text-align: right;cursor: pointer;}
+.nav> div {text-align: right;cursor: pointer;font-weight:200;}
 .nav> ul {margin-bottom:0;}
 .nav> ul> li {
   font-size:larger;
