@@ -60,6 +60,11 @@ a:hover .chevron {
   50% {width:0;}
   to {width: var(--size);}
 }
+
+/* Liste partenaires custom sur paysage grand écran */
+.page-partenaires section> ul .hidden {display:block !important;}
+
+
 @media screen and (orientation:portrait) {
   .redux {--size: calc(24vw - 4px);}
   .wide {--size: calc(12dvh - 4px);}

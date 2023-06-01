@@ -66,3 +66,34 @@
   .nav ul {justify-content: end;}
   .nav li {margin-left:1em;}
 }
+
+@media screen and (orientation:landscape) and (min-width:1200px) {
+ .list ul {
+    display:grid;
+    grid-template-areas:
+      "item1 item2 item3 item4 item5 item6"
+      "item7 item8 item9 . . ."
+      "item10 item11 item12 item13 item14 ."
+      "item16 . .  . . .";
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+ }
+ .list li {width: fit-content;margin: .2em 1em;}
+ .list li:first-child {grid-area: item1;}
+ .list li:nth-child(2) {grid-area: item2;}
+ .list li:nth-child(3) {grid-area: item3;}
+ .list li:nth-child(4) {grid-area: item4;}
+ .list li:nth-child(5) {grid-area: item5;}
+ .list li:nth-child(6) {grid-area: item6;} 
+ .list li:nth-child(7) {grid-area: item7;}
+ .list li:nth-child(8) {grid-area: item8;}
+ .list li:nth-child(9) {grid-area: item9;}
+ .list li:nth-child(10) {grid-area: item10;}
+ .list li:nth-child(11) {grid-area: item11;}
+ .list li:nth-child(12) {grid-area: item12;}
+ .list li:nth-child(13) {grid-area: item13;}
+ .list li:nth-child(14) {grid-area: item14;}
+ /*.list li:nth-child(15) {grid-area: 'item15';}*/
+ .list li:last-child {grid-area: item16;}
+}
